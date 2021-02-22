@@ -29,13 +29,13 @@ const App = () => {
             }
         }
         if(min<10) min="0"+Number(min);
-        if(sec<10) sec="0"+sec;
+        if(sec<10) sec="0"+Number(sec);
         setTime(hr+":"+min+":"+sec+" "+amOrpm);
     }
 
     useEffect(()=>{
         if(min<10) min="0"+Number(min);
-        if(sec<10) sec="0"+sec;
+        if(sec<10) sec="0"+Number(sec);
         setTime(hr+":"+min+":"+sec+" "+amOrpm);
         interval=setInterval(updateTime, 1000);
         return () => {
