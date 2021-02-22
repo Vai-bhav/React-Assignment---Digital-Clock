@@ -28,13 +28,13 @@ const App = () => {
                 }else if(hr===0 && amOrpm==="PM") amOrpm="AM";
             }
         }
-        if(min<10) min="0"+min;
+        if(min<10) min="0"+Number(min);
         if(sec<10) sec="0"+sec;
         setTime(hr+":"+min+":"+sec+" "+amOrpm);
     }
 
     useEffect(()=>{
-        if(min<10) min="0"+min;
+        if(min<10) min="0"+Number(min);
         if(sec<10) sec="0"+sec;
         setTime(hr+":"+min+":"+sec+" "+amOrpm);
         interval=setInterval(updateTime, 1000);
