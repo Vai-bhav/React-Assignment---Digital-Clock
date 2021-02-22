@@ -12,6 +12,9 @@ const App = () => {
         hr=hr-12;
         amOrpm="PM";
     }
+    if(amOrpm==="PM" && hr>12){
+        hr=hr-12;
+    }
     let interval;
 
     const updateTime = () =>{
