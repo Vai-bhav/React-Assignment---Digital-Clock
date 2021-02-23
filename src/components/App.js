@@ -1,3 +1,40 @@
+import React,{ useState, useEffect } from 'react';
+import '../styles/App.css';
+
+const App = () => {
+    const [time,setTime]=useState(new Date().toLocaleTimeString());
+    let interval=0;
+    const updateTime = () =>{
+        setTime(new Date().toLocaleTimeString());
+    }
+    useEffect(()=>{
+        interval=setInterval(updateTime,1000);
+        return () =>{
+            clearInterval(interval);
+        }
+    })
+    return (
+        <div className="Clock">
+            <h3 id="time">{time}</h3>
+        </div>
+    );
+};
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React, { useEffect, useState } from 'react';
 // import '../styles/App.css';
 
@@ -53,27 +90,3 @@
 // };
 
 // export default App;
-
-import React,{ useState, useEffect } from 'react';
-import '../styles/App.css';
-
-const App = () => {
-    const [time,setTime]=useState(new Date().toLocaleTimeString());
-    let interval=0;
-    const updateTime = () =>{
-        setTime(new Date().toLocaleTimeString());
-    }
-    useEffect(()=>{
-        interval=setInterval(updateTime,1000);
-        return () =>{
-            clearInterval(interval);
-        }
-    })
-    return (
-        <div className="Clock">
-            <h3 id="time">{time}</h3>
-        </div>
-    );
-};
-
-export default App;
