@@ -12,7 +12,7 @@ const App = () => {
         return () =>{
             clearInterval(interval);
         }
-    })
+    },[])
     return (
         <div className="Clock">
             <h3 id="time">{time}</h3>
