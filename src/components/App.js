@@ -4,7 +4,16 @@ import '../styles/App.css';
 const App = () => {
     const [time,setTime]=useState(new Date().toLocaleTimeString());
     const updateTime = () =>{
-        setTime(new Date().toLocaleTimeString());
+        let date = new Date();
+        let updateHour = date.getHours();
+        let updateMinute = date.getMinutes();
+        let updateSecond = date.getSeconds();
+        let updateAMPM = updateHour < 12 ? 'AM' : 'PM';
+        updateHour=updateHour>12 ? updateHour-12: updateHour;
+        if(updateMinute < 10) updateMinute = `0${updateMinute}`;
+        if(updateSecond < 10) updateSecond = `0${updateSecond}`;
+        let updatedTime = `${updateHour}:${updateMinute}:${updateSecond} ${updateAMPM}`;
+        setTime(updatedTime);
     }
     useEffect(()=>{
         const interval=setInterval(updateTime,1000);
