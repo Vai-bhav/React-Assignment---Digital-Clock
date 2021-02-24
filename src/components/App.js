@@ -3,12 +3,11 @@ import '../styles/App.css';
 
 const App = () => {
     const [time,setTime]=useState(new Date().toLocaleTimeString());
-    let interval=0;
     const updateTime = () =>{
         setTime(new Date().toLocaleTimeString());
     }
     useEffect(()=>{
-        interval=setInterval(updateTime,1000);
+        const interval=setInterval(updateTime,1000);
         return () =>{
             clearInterval(interval);
         }
